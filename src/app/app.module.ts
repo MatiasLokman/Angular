@@ -6,7 +6,7 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './pages/home/home.component';
 import { NotFoundComponent } from './pages/not-found/not-found.component';
 import { ContactComponent } from './pages/contact/contact.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CoreModule } from './core/core.module';
 
 @NgModule({
@@ -16,7 +16,13 @@ import { CoreModule } from './core/core.module';
     NotFoundComponent,
     ContactComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule, FormsModule, CoreModule],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    FormsModule,
+    ReactiveFormsModule,
+    CoreModule,
+  ],
   providers: [],
   bootstrap: [AppComponent],
 })

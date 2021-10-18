@@ -1,7 +1,101 @@
 <div class="form__container">
   <h1>Contactanos</h1>
-  <form class="form">
+  <p>Valido: {{ formData.valid ? "Si" : "No" }}</p>
+  <form [formGroup]="formData" (ngSubmit)="submitForm()" class="form">
     <label for="name">Nombre</label>
+    <input
+      formControlName="name"
+      name="name"
+      placeholder="Nombre"
+      id="name"
+      type="text"
+    />
+
+    <br />
+
+    <div class="error" *ngIf="userEmail()?.invalid && userEmail()?.touched">
+      <small *ngIf="userEmail()?.getError('required')" class="redText"
+        >El Email es obligatorio
+        <br />
+      </small>
+
+      <small *ngIf="userEmail()?.getError('minlength')" class="redText"
+        >El minimo de caracteres es 10
+        <br />
+      </small>
+
+      <small *ngIf="userEmail()?.getError('email')" class="redText"
+        >El formato es incorrecto
+        <br />
+      </small>
+    </div>
+
+    <label for="email">Email</label>
+    <input
+      formControlName="email"
+      name="email"
+      id="email"
+      placeholder="Email"
+      type="email"
+    />
+
+    <br />
+    <label for="age">Edad</label>
+    <input
+      formControlName="age"
+      name="age"
+      id="age"
+      min="0"
+      max="150"
+      type="number"
+    />
+
+    <br />
+    <label for="mailingList">Suscribirse al mailing list</label>
+    <input
+      formControlName="mailingList"
+      type="checkbox"
+      name="mailingList"
+      id="mailingList"
+    />
+
+    <br />
+    <br />
+    <div formGroupName="address">
+      <label for="street">Calle</label>
+      <input
+        formControlName="street"
+        name="street"
+        placeholder="Calle"
+        id="street"
+        type="text"
+      />
+
+      <br />
+      <label for="number">Numeracion</label>
+      <input
+        formControlName="number"
+        name="number"
+        placeholder="Numeracion"
+        id="number"
+        type="text"
+      />
+
+      <br />
+      <label for="zipCode">Codigo Postal</label>
+      <input
+        formControlName="zipCode"
+        name="zipCode"
+        placeholder="Codigo Postal"
+        id="zipCode"
+        type="text"
+      />
+    </div>
+
+    <button type="submit">Enviar</button>
+    <button (click)="resetAddress()">Resetear direccion</button>
+
+    <!-- <label for="name">Nombre</label>
     <input
       [(ngModel)]="formData.name"
       type="text"
@@ -44,9 +138,12 @@
       (click)="sendFormData()"
     >
       Enviar
-    </button>
+    </button> -->
   </form>
-  <div>
+  <br />
+  <br />
+
+  <!-- <div>
     <span *ngIf="formData.name">
       {{ formData.name }}, muchas gracias por escribirnos! En breve estaremos
       contactandonos con vos!
@@ -54,5 +151,5 @@
     <button *ngIf="formData.name" (click)="resetName()" type="button">
       Reset Nombre
     </button>
-  </div>
+  </div>  -->
 </div>
