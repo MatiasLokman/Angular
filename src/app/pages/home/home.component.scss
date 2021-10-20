@@ -1,0 +1,34 @@
+.home {
+  margin-top: 50px;
+
+  // &__container {
+  display: flex;
+  justify-content: space-between;
+  // }
+}
+
+.card {
+  margin: 50px 100px;
+}
+
+.avatar {
+  background-image: url(https://static1.abc.es/media/play/2020/09/29/avatar-kE4H--1024x512@abc.jpeg);
+  background-size: cover;
+  background-position: center;
+}
+
+mat-card-actions {
+  // display: flex;
+  // justify-content: space-between;
+  // align-items: center;
+
+  //   div {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  //   }
+}
+
+img {
+  object-fit: cover;
+}
