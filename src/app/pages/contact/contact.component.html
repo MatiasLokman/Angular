@@ -131,14 +131,16 @@
       </mat-button-toggle-group>
     </div>
 
-    <!-- <mat-form-field appearance="fill">
+    <mat-form-field appearance="fill">
       <mat-label>Color</mat-label>
       <mat-select>
-        <mat-option *ngFor="shirtColor; of: ShirtColors" [value]="shirtColor.desc">{{
-          shirtColor.color
-        }}</mat-option>
+        <mat-option
+          *ngFor="let shirtColor of shirtColors"
+          [value]="shirtColor.desc | titlecase"
+          >{{ shirtColor.color | titlecase }}</mat-option
+        >
       </mat-select>
-    </mat-form-field> -->
+    </mat-form-field>
 
     <div class="form__buttons">
       <button mat-raised-button color="primary" type="submit">Enviar</button>
